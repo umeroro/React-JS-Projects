@@ -10,6 +10,7 @@ function App() {
     <>
       <div>
         Hello this is the dice game.
+        we create it
       </div>
     </>
   )
