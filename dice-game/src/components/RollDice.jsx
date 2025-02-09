@@ -2,23 +2,28 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const RollDice = () => {
-  const [currentDice, setcurrentDice] = useState();
-  const generaterandomNumber = (min, max) => {
+  const [currentDice, setCurrentDice] = useState(1);
+
+  const generateRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
-  const rolldice = () => {
-    const RandomNumber = generaterandomNumber(1,7);
-    setcurrentDice((prev)=>{RandomNumber});
-  }
+  const rollDice = () => {
+    const randomNumber = generateRandomNumber(1, 7);
+    setCurrentDice(randomNumber);
+  };
+
+  const resetScore = () => {
+    setCurrentDice(1);
+  };
 
   return (
     <RollContainer>
-      <div className="dice" onClick={rolldice}>
-        <img src="./images/dice_1.png" alt="Dice 1" />
+      <div className="dice" onClick={rollDice}>
+        <img src={`./images/dice_${currentDice}.png`} alt={`Dice ${currentDice}`} />
       </div>
       <p>Click on Dice to roll</p>
-      <Button>Reset Score</Button>
+      <Button onClick={resetScore}>Reset Score</Button>
     </RollContainer>
   );
 };
@@ -41,4 +46,17 @@ const RollContainer = styled.div`
   }
 `;
 
-const Button = styled.button``;
+const Button = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
