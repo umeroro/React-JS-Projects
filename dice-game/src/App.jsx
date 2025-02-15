@@ -6,12 +6,11 @@ function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
 
   const toggleGamePlay = () => {
-    setIsGameStarted((pre) => !pre);
+    setIsGameStarted((prev) => !prev);
   };
 
   return (
-    // <>{isGameStarted ? <GamePlay /> : <StartGame toggle={toggleGamePlay} />}</>
-    <GamePlay />
+    <>{isGameStarted ? <GamePlay /> : <StartGame toggle={toggleGamePlay} />}</>
   );
 }
 
