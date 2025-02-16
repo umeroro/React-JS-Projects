@@ -11,6 +11,15 @@ const App = () => {
           <input type="text" placeholder="Search Food..." />
         </div>
       </Topcontainer>
+      <Filtercontainer>
+        <Button>All</Button>
+        <Button>Breakfast</Button>
+        <Button>Lunch</Button>
+        <Button>Dinner</Button>
+      </Filtercontainer>
+      <Foodcardcontainer>
+        <FoodCards></FoodCards>
+      </Foodcardcontainer>
     </Maincontainer>
   );
 };
@@ -18,8 +27,7 @@ const App = () => {
 export default App;
 
 const Maincontainer = styled.div`
-  background-color: #323334;
-  max-width: 1260px;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 const Topcontainer = styled.div`
@@ -28,21 +36,39 @@ const Topcontainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  .search input[type="text"] {
-    border: 2px solid red;
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  .search input[type="text"]::placeholder {
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  .search input[type="text"]:focus {
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-    outline: none;
+  .search {
+    input{
+      background-color: transparent;
+      border: 2px solid red;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px;
+    }
+    input::placeholder{
+      color: white;
+    }
   }
 `;
+const Filtercontainer = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 40px;
+`;
+const Button = styled.button`
+  background-color: #ff4343;
+  border-radius: 5px;
+  padding: 6px 12px;
+  color: white;
+  border: none;
+  cursor: pointer;
+`;
+const Foodcardcontainer = styled.section`
+  min-height: 69.5vh;
+  background-image: url("bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+const FoodCards = styled.div``;
