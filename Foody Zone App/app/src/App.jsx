@@ -18,7 +18,9 @@ const App = () => {
         <Button>Dinner</Button>
       </Filtercontainer>
       <Foodcardcontainer>
-        <FoodCards></FoodCards>
+        <FoodCards>
+          <div></div>
+        </FoodCards>
       </Foodcardcontainer>
     </Maincontainer>
   );
