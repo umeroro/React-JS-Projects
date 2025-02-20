@@ -22,6 +22,8 @@ const App = () => {
           <div></div>
           <div></div>
           <div></div>
+          <div></div>
+          <div></div>
         </FoodCards>
       </Foodcardcontainer>
     </Maincontainer>
