@@ -10,6 +10,7 @@ const Card = (props) => {
       <h1>{props.title || "No Title"}</h1>
       <button onClick={handleClick}>Show Title</button>
       <p>{props.description || "No Description"}</p>
+      <div></div>
     </div>
   );
 };
