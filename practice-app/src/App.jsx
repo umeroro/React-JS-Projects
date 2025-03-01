@@ -6,6 +6,7 @@ function App() {
     { title: "Card 1", description: "This is 1st Description" },
     { title: "Card 2", description: "This is 2nd Description" },
     { title: "Card 3", description: "This is 3rd Description" },
+    { title: "Card 3", description: "This is 3rd Description" },
   ];
 
   const title = true;
