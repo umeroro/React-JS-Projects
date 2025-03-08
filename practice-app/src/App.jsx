@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "./Card";
 
 function App() {
@@ -7,6 +7,10 @@ function App() {
     { title: "Card 2", description: "This is 2nd Description" },
     { title: "Card 3", description: "This is 3rd Description" },
   ];
+
+  useEffect(()=>{
+    console.log("Card Loaded")
+  },[])
 
   const title = true;
 
