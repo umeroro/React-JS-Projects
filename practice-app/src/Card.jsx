@@ -1,32 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ThemeContext } from './App';
 
 const Card = (props) => {
-
+  const theme = useContext(ThemeContext);
+  const [post, setPost] = useState([]);
   const [count, setCount] = useState(0);
 
-  const handleClick = () => {
-    alert(props.title || "No Title");
-  };
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((data) => setPost(data));
+  }, []);
 
   const handleCount = () => {
     setCount(count + 1);
-  }
+  };
 
   return (
-    <div style={{ border: "1px solid black", padding: "10px", margin: "10px" }}>
+    <div style={{ background: theme === "dark" ? "black" : "white", color: theme === "dark" ? "white" : "black" }}>
       {props.title ? (
         <>
           <h1>{props.title || "No Title"}</h1>
-          <button onClick={handleClick}>Show Title</button>
           <p>{props.description || "No Description"}</p>
         </>
       ) : (
-        <>
-          <p>No title available</p>
-        </>
+        <p>No title available</p>
       )}
-      <button onClick={handleCount}>Clicked Me</button>
-      <p>Clicked : {count}</p>  
+      <button onClick={handleCount}>Click Me</button>
+      <p>Clicked: {count}</p>
+      {post.map((posts) => (
+        <p key={posts.id}>{posts.title}</p>
+      ))}
     </div>
   );
 };
