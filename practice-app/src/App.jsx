@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "./Card";
+
+export const ThemeContext = React.createContext(); // Export kiya taaki Card.js use kar sake
 
 function App() {
   const cardData = [
@@ -8,14 +10,10 @@ function App() {
     { title: "Card 3", description: "This is 3rd Description" },
   ];
 
-  useEffect(()=>{
-    console.log("Card Loaded")
-  },[])
-
-  const title = true;
+  const theme = "dark";
 
   return (
-    <>
+    <ThemeContext.Provider value={theme}>
       <div>
         {cardData.map((card, index) => (
           <Card
@@ -25,7 +23,7 @@ function App() {
           />
         ))}
       </div>
-    </>
+    </ThemeContext.Provider>
   );
 }
 
