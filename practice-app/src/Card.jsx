@@ -1,20 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { ThemeContext } from './App';
 
 const Card = (props) => {
+
+  const reducer = ((state , action)=>{
+    if(action.type === 'increase'){
+      return state + 1;
+    } else if (action.type === 'decrease'){
+      return state -1 ;
+    }
+  })
+
   const theme = useContext(ThemeContext);
   const [post, setPost] = useState([]);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useReducer(reducer , 0);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((data) => setPost(data));
   }, []);
-
-  const handleCount = () => {
-    setCount(count + 1);
-  };
 
   return (
     <div style={{ background: theme === "dark" ? "black" : "white", color: theme === "dark" ? "white" : "black" }}>
