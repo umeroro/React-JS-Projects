@@ -8,7 +8,7 @@ const App = () => {
       <div className="flex">
         <input
           type="text"
-          placeholder="Search Contact"
+          placeholder="  Search Contact"
           className="h-10 flex-grow rounded-md border border-white bg-transparent text-white"
         />
       </div>
