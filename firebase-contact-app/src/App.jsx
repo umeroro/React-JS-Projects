@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config/firebase";
 import ContactCard from "./components/ContactCard";
-import Modal from "./components/Modal";
+import AddAndUpdate from "./components/AddAndUpdate";
 
 const App = () => {
   const [contacts, setContact] = useState([]);
@@ -51,7 +51,10 @@ const App = () => {
               className="h-10 flex-grow rounded-md border border-white bg-transparent text-white pl-9"
             />
           </div>
-          <AiFillPlusCircle onClick={onOpen} className="text-4xl text-white cursor-pointer" />
+          <AiFillPlusCircle
+            onClick={onOpen}
+            className="text-4xl text-white cursor-pointer"
+          />
         </div>
         <div className="pt-[20px] flex flex-col gap-3">
           {contacts.map((contact) => (
@@ -59,7 +62,7 @@ const App = () => {
           ))}
         </div>
       </div>
-      <Modal isOpen={isOpen} onClose={onClose}/>
+      <AddAndUpdate onClose={onClose} isOpen={isOpen}/>
     </>
   );
 };
