@@ -22,7 +22,6 @@ const AddAndUpdate = ({ isOpen, onClose }) => {
             email: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
             setContact(values);
           }}
         >
